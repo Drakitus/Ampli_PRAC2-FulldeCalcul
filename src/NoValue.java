@@ -1,20 +1,22 @@
+import java.util.HashSet;
 import java.util.Set;
 
-public class NoValue extends MaybeValue{
+public class NoValue extends MaybeValue {
+
+    public static final NoValue INSTANCE = new NoValue();
+
+    private NoValue() {
+        super(false);
+    }
+
 
     @Override
-    public boolean hasValue(){
-        return false;
+    public MaybeValue evaluate() {
+        return this;
     }
 
     @Override
-    public MaybeValue evaluate(){
-        throw new NullPointerException("The expression is null.");
+    public Set<Cell> references() {
+        return new HashSet<>();
     }
-
-    @Override
-    public Set<Cell> references(){
-        throw new NullPointerException("The expression is null.");
-    }
-
 }

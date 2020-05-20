@@ -1,24 +1,26 @@
+import java.util.HashSet;
 import java.util.Set;
 
-public class SomeValue extends MaybeValue{
-    private final Integer someValue;
+public class SomeValue extends MaybeValue {
+
+    private int value;
 
     public SomeValue(int value){
-        someValue = value;
+        super(true);
+        this.value = value;
+    }
+
+    private int getValue(){
+        return value;
     }
 
     @Override
-    public boolean hasValue() {
-        return someValue != 0;
-    }
-
-    @Override
-    public MaybeValue evaluate(){
+    public MaybeValue evaluate() {
         return this;
     }
 
     @Override
-    public Set<Cell> references(){
-
+    public Set<Cell> references() {
+        return new HashSet<>();
     }
 }

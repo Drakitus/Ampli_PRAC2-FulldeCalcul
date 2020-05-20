@@ -2,18 +2,19 @@ import java.util.HashMap;
 
 public class Sheet{
     private final HashMap<String, Cell> sheet;
-    private final static NoValue empty = new NoValue();
+
 
     public Sheet(int size){
         this.sheet = new HashMap<>(size*size);
-        initEmpty(size);
+        initEmpty();
     }
 
-    private void initEmpty(int size){
+    private void initEmpty(){
+        int size = sheet.size();
         for(char column = 'a'; column < 'z'; column++){
             for(int row = 1; row <= size; row++){
                 String name = column + String.valueOf(row);
-                sheet.put(name, new Cell(empty));
+                sheet.put(name, new Cell(NoValue.INSTANCE));
             }
         }
     }
