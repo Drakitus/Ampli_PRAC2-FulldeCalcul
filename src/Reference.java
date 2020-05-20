@@ -1,3 +1,4 @@
+import java.util.HashSet;
 import java.util.Set;
 
 public class Reference implements Expression{
@@ -15,7 +16,9 @@ public class Reference implements Expression{
 
     @Override
     public Set<Cell> references() {
-        return null;
+        Set<Cell> referenced = new HashSet<>();
+        referenced.add(refered);
+        return referenced;
     }
 
 }
