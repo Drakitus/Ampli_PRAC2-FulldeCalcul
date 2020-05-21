@@ -1,4 +1,3 @@
-import java.beans.Expression;
 
 public class SpreadSheet {
     private static int SIZE = 5;
@@ -8,13 +7,15 @@ public class SpreadSheet {
         // Crea i retorna una expressió corresponent a la
         // suma de les dues subexpressions
 
+        return new Plus(expr1,expr2);
+
     }
 
     public static Expression plus(Expression expr1, int value2) {
         // Crea i retorna una expressió corresponent a la
         // suma de expr1 i de l’expressió que representa
         // la constant value2
-        ¿?
+        return new Plus(expr1, new SomeValue(value2));
     }
 
     public static Expression plus(Expression expr1, String ref2) {
@@ -25,11 +26,11 @@ public class SpreadSheet {
     }
 
     public static Expression plus(int value1, Expression expr2) {
-         ¿?
+         return new Plus(new SomeValue(value1),expr2);
     }
 
     public static Expression plus(int value1, int value2) {
-        ¿?
+        return new Plus(new SomeValue(value1),new SomeValue(value2));
     }
 
     public static Expression plus(int value1, String ref2) {
@@ -53,29 +54,28 @@ public class SpreadSheet {
     public static Expression mult(Expression expr1, Expression expr2) {
         // Crea i retorna una expressió corresponent a la
         // suma de les dues subexpressions
-            ¿?
+            return new Mult(expr1,expr2);
     }
 
     public static Expression mult(Expression expr1, int value2) {
         // Crea i retorna una expressió corresponent a la
         // suma de expr1 i de l’expressió que representa
         // la constant value2
-            ¿?
+            return new Mult(expr1,new SomeValue(value2));
     }
 
     public static Expression mult(Expression expr1, String ref2) {
         // Crea i retorna una expressió corresponent a la
         // suma de expr1 i de l’expressió que representa
         // una referència a la cel·la amb nom ref2
-            ¿?
     }
 
     public static Expression mult(int value1, Expression expr2) {
-             ¿?
+        return new Mult(new SomeValue(value1), expr2);
     }
 
     public static Expression mult(int value1, int value2) {
-            ¿?
+        return new Mult(new SomeValue(value1), new SomeValue(value2));
     }
 
     public static Expression mult(int value1, String ref2) {
@@ -136,6 +136,6 @@ public class SpreadSheet {
 
     public static void clear() {
         // Esborra totes les cel·les del full de càlcul.
-        ¿?
+        SHEET.clear();
     }
 }
