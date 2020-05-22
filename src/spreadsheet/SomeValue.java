@@ -1,16 +1,20 @@
+package spreadsheet;
+
 import java.util.HashSet;
 import java.util.Set;
 
+
+//IMMUTABLE
 public class SomeValue extends MaybeValue {
 
-    private int value;
+    private final int value;
 
     public SomeValue(int value){
         super(true);
         this.value = value;
     }
 
-    private int getValue(){
+    public int getValue(){
         return value;
     }
 
@@ -22,5 +26,13 @@ public class SomeValue extends MaybeValue {
     @Override
     public Set<Cell> references() {
         return new HashSet<>();
+    }
+
+    @Override
+    public boolean equals(Object o){
+        if(o instanceof SomeValue){
+            return this.value == ((SomeValue) o).getValue();
+        }
+        return false;
     }
 }

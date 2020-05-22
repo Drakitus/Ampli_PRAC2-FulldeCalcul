@@ -1,3 +1,7 @@
+package spreadsheet;
+
+import java.util.Set;
+
 public class Plus extends Operation {
 
     public Plus(Expression e1, Expression e2) {
@@ -6,5 +10,10 @@ public class Plus extends Operation {
 
     public int operate(int i1, int i2){
         return i1 + i2;
+    }
+
+    @Override
+    public Set<Cell> references(){
+        throw new UnsupportedOperationException();
     }
 }

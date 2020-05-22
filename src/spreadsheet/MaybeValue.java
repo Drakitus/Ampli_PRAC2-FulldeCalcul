@@ -1,3 +1,5 @@
+package spreadsheet;
+
 public abstract class MaybeValue implements Expression {
 
     private final boolean hasValue;
