@@ -3,8 +3,6 @@ package spreadsheet;
 import java.util.HashSet;
 import java.util.Set;
 
-
-//IMMUTABLE
 public class SomeValue extends MaybeValue {
 
     private final int value;

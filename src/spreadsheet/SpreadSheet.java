@@ -1,5 +1,7 @@
 package spreadsheet;
 
+import java.util.Set;
+
 public class SpreadSheet {
     private static final int SIZE = 5;
     private static final Sheet SHEET = new Sheet(SIZE);
@@ -104,7 +106,7 @@ public class SpreadSheet {
         // Si hi ha un valor, es retorna una instància de
         // spreadsheet.SomeValue; si no hi ha, spreadsheet.NoValue.
 
-        return SHEET.get(name);
+        return SHEET.get(name).evaluate();
 
     }
 
@@ -125,7 +127,7 @@ public class SpreadSheet {
         // referència com spreadsheet.Expression).
         // Això pot provocar avaluacions d’aquesta o
         // d’altres cel·les
-        MaybeValue content = SHEET.get(refName);
+        Reference content = SHEET.get(refName);
         SHEET.put(name, content);
     }
 
@@ -141,5 +143,13 @@ public class SpreadSheet {
     public static void clear() {
         // Esborra totes les cel·les del full de càlcul.
         SHEET.clear();
+    }
+
+    public static Set<Cell> references(String name){
+        return SHEET.references(name);
+    }
+
+    public static Cell getCell(String name){  //METHOD ONLY FOR TESTING
+        return SHEET.get(name).getCell();
     }
 }

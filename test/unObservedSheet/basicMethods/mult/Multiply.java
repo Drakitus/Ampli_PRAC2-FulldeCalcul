@@ -4,7 +4,6 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 import spreadsheet.Mult;
 import spreadsheet.SomeValue;
-import spreadsheet.SpreadSheet;
 import static spreadsheet.SpreadSheet.*;
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -49,12 +48,6 @@ public class Multiply{
         put("a2", mult(30, "a1"));
         assertEquals(new SomeValue(120), get("a2"));
     }
-
-
-
-
-
-
 
     @AfterEach
     public void clearSheet(){

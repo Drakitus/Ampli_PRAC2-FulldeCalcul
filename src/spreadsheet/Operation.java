@@ -1,9 +1,11 @@
 package spreadsheet;
 
+import java.util.HashSet;
 import java.util.Set;
 
 public abstract class Operation implements Expression{
 
+    private final Set<Cell> references = new HashSet<>();
     Expression e1, e2;
 
     public Operation(Expression e1, Expression e2){
@@ -23,7 +25,13 @@ public abstract class Operation implements Expression{
         return NoValue.INSTANCE;
     }
 
+    public void addReferences(){
+        references.addAll(e1.references());
+        references.addAll(e2.references());
+    }
+
     public Set<Cell> references(){
-        return null;
+        addReferences();
+        return references;
     }
 }

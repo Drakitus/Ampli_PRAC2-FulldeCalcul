@@ -12,8 +12,4 @@ public class Mult extends Operation{
         return i1 * i2;
     }
 
-    @Override
-    public Set<Cell> references(){
-        throw new UnsupportedOperationException();
-    }
 }

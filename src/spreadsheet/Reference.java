@@ -11,6 +11,10 @@ public class Reference implements Expression{
         this.referred = cell;
     }
 
+    public Cell getCell(){
+        return referred;
+    }
+
     @Override
     public MaybeValue evaluate() {
         return referred.evaluate();
@@ -20,10 +24,11 @@ public class Reference implements Expression{
     public Set<Cell> references() {
         Set<Cell> referenced = new HashSet<>();
         referenced.add(referred);
+        referenced.addAll(referred.getContent().references());
         return referenced;
     }
 
-    public void set(Expression expr){
+    public void setExpression(Expression expr){
         referred.set(expr);
     }
 
