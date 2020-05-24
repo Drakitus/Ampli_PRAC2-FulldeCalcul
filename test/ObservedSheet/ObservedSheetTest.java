@@ -19,15 +19,6 @@ public class ObservedSheetTest {
         assertEquals(new SomeValue(20), get("b5"));
     }
 
-    @Test
-    public void ignores_NoValue_cells(){
-        put("a4", 4);
-        put("a3", plus("a4", "b2" ));
-        put("b5", "a3");
-        put("a4", 10);
-        assertEquals(new SomeValue(20), get("b5"));
-    }
-
     @AfterEach
     public void reset(){
         clear();
