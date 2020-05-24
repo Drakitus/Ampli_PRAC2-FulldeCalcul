@@ -3,7 +3,7 @@ package unObservedSheet.functionality;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 import spreadsheet.Cell;
-import spreadsheet.SomeValue;
+import spreadsheet.Expressions.Values.SomeValue;
 
 import java.util.HashSet;
 import java.util.Set;

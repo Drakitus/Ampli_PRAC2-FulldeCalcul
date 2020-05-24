@@ -2,7 +2,7 @@ package ObservedSheet;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
-import spreadsheet.SomeValue;
+import spreadsheet.Expressions.Values.SomeValue;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static spreadsheet.SpreadSheet.*;
@@ -11,9 +11,25 @@ public class ObservedSheetTest {
 
     @Test
     public void recalculation_works(){
-        put("a3", mult("a1", "a2"));
-        put("a1", 42);
-        put("a2", 20);
-        assertEquals(new SomeValue(840), get("a3"));
+        put("a3", mult("a4", "b2" ));
+        put("b2", 2);
+        put("a4", 4);
+        put("b5", "a3");
+        put("a4", 10);
+        assertEquals(new SomeValue(20), get("b5"));
+    }
+
+    @Test
+    public void ignores_NoValue_cells(){
+        put("a4", 4);
+        put("a3", plus("a4", "b2" ));
+        put("b5", "a3");
+        put("a4", 10);
+        assertEquals(new SomeValue(20), get("b5"));
+    }
+
+    @AfterEach
+    public void reset(){
+        clear();
     }
 }

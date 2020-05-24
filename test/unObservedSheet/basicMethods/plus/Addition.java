@@ -2,8 +2,8 @@ package unObservedSheet.basicMethods.plus;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
-import spreadsheet.Plus;
-import spreadsheet.SomeValue;
+import spreadsheet.Expressions.Operations.Plus;
+import spreadsheet.Expressions.Values.SomeValue;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static spreadsheet.SpreadSheet.*;

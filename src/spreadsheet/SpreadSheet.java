@@ -1,5 +1,10 @@
 package spreadsheet;
 
+import spreadsheet.Expressions.*;
+import spreadsheet.Expressions.Operations.*;
+import spreadsheet.Expressions.Reference.Reference;
+import spreadsheet.Expressions.Values.*;
+
 import java.util.Set;
 
 public class SpreadSheet {
@@ -104,7 +109,7 @@ public class SpreadSheet {
         // Retorna el valor que potser hi ha a la cel·la
         // amb nom name.
         // Si hi ha un valor, es retorna una instància de
-        // spreadsheet.SomeValue; si no hi ha, spreadsheet.NoValue.
+        // spreadsheet.Expressions.Values.SomeValue; si no hi ha, spreadsheet.Expressions.Values.NoValue.
 
         return SHEET.get(name).evaluate();
 
@@ -113,7 +118,7 @@ public class SpreadSheet {
     public static void put(String name, int value) {
         // Assigna a la cel·la amb nom name l’expressió
         // el valor value (Òbviament caldrà construir la
-        // representació d’aquest int com spreadsheet.Expression).
+        // representació d’aquest int com spreadsheet.Expressions.Expression).
         // Això pot provocar avaluacions d’aquesta o
         // d’altres cel·les
         SomeValue content = new SomeValue(value);
@@ -124,7 +129,7 @@ public class SpreadSheet {
         // Assigna a la cel·la amb nom name la referència
         // a la cel·la amb nom refName (Òbviament caldrà
         // construir la representació d’aquesta
-        // referència com spreadsheet.Expression).
+        // referència com spreadsheet.Expressions.Expression).
         // Això pot provocar avaluacions d’aquesta o
         // d’altres cel·les
         Reference content = SHEET.get(refName);
@@ -145,11 +150,13 @@ public class SpreadSheet {
         SHEET.clear();
     }
 
+    /* --------------- TESTING METHODS ---------------------------*/
+
     public static Set<Cell> references(String name){
         return SHEET.references(name);
     }
 
-    public static Cell getCell(String name){  //METHOD ONLY FOR TESTING
+    public static Cell getCell(String name){
         return SHEET.get(name).getCell();
     }
 }

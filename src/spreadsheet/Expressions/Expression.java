@@ -1,4 +1,7 @@
-package spreadsheet;
+package spreadsheet.Expressions;
+
+import spreadsheet.Cell;
+import spreadsheet.Expressions.Values.MaybeValue;
 
 import java.util.Set;
 

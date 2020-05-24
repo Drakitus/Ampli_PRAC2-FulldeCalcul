@@ -1,6 +1,6 @@
-package spreadsheet;
+package spreadsheet.Expressions.Operations;
 
-import java.util.Set;
+import spreadsheet.Expressions.Expression;
 
 public class Mult extends Operation{
 
@@ -8,8 +8,10 @@ public class Mult extends Operation{
         super(e1,e2);
     }
 
-    public int operate(int i1, int i2){
+    protected int operate(int i1, int i2){
         return i1 * i2;
     }
+
+
 
 }

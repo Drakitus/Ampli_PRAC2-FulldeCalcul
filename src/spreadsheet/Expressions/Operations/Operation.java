@@ -1,11 +1,14 @@
-package spreadsheet;
+package spreadsheet.Expressions.Operations;
+
+import spreadsheet.Cell;
+import spreadsheet.Expressions.Expression;
+import spreadsheet.Expressions.Values.*;
 
 import java.util.HashSet;
 import java.util.Set;
 
-public abstract class Operation implements Expression{
+public abstract class Operation implements Expression {
 
-    private final Set<Cell> references = new HashSet<>();
     Expression e1, e2;
 
     public Operation(Expression e1, Expression e2){
@@ -13,7 +16,7 @@ public abstract class Operation implements Expression{
         this.e2 = e2;
     }
 
-    public abstract int operate(int i1, int i2);
+    protected abstract int operate(int i1, int i2);
 
     @Override
     public MaybeValue evaluate(){
@@ -25,13 +28,10 @@ public abstract class Operation implements Expression{
         return NoValue.INSTANCE;
     }
 
-    public void addReferences(){
+    public Set<Cell> references(){
+        Set<Cell> references = new HashSet<>();
         references.addAll(e1.references());
         references.addAll(e2.references());
-    }
-
-    public Set<Cell> references(){
-        addReferences();
         return references;
     }
 }

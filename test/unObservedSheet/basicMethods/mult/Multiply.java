@@ -2,8 +2,8 @@ package unObservedSheet.basicMethods.mult;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
-import spreadsheet.Mult;
-import spreadsheet.SomeValue;
+import spreadsheet.Expressions.Operations.Mult;
+import spreadsheet.Expressions.Values.SomeValue;
 import static spreadsheet.SpreadSheet.*;
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -47,6 +47,13 @@ public class Multiply{
         put("a1", 4);
         put("a2", mult(30, "a1"));
         assertEquals(new SomeValue(120), get("a2"));
+    }
+
+    @Test
+    public void multWith0(){
+        put("a1", 0);
+        put("a2", mult(2, "a1"));
+        assertEquals(new SomeValue(0), get("a2"));
     }
 
     @AfterEach

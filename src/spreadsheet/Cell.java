@@ -1,5 +1,8 @@
 package spreadsheet;
 
+import spreadsheet.Expressions.Expression;
+import spreadsheet.Expressions.Values.MaybeValue;
+
 import java.util.Observable;
 import java.util.Observer;
 
@@ -26,9 +29,7 @@ public class Cell extends Observable implements Observer {
 
     private void addObserversCell() {
         for (Cell reference : content.references()) {
-            if (!reference.equals(this)) { //With this implementation this should never be equal to reference, but it's good practice
                 reference.addObserver(this);
-            }
         }
     }
 

@@ -1,9 +1,13 @@
-package spreadsheet;
+package spreadsheet.Expressions.Reference;
+
+import spreadsheet.Cell;
+import spreadsheet.Expressions.Expression;
+import spreadsheet.Expressions.Values.MaybeValue;
 
 import java.util.HashSet;
 import java.util.Set;
 
-public class Reference implements Expression{
+public class Reference implements Expression {
 
     private final Cell referred;
 

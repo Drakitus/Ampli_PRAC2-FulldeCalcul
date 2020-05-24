@@ -2,8 +2,8 @@ package unObservedSheet.basicMethods.put_get_clear;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
-import spreadsheet.Mult;
-import spreadsheet.SomeValue;
+import spreadsheet.Expressions.Operations.Mult;
+import spreadsheet.Expressions.Values.SomeValue;
 import spreadsheet.SpreadSheet;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;

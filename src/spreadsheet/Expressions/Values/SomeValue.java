@@ -1,7 +1,4 @@
-package spreadsheet;
-
-import java.util.HashSet;
-import java.util.Set;
+package spreadsheet.Expressions.Values;
 
 public class SomeValue extends MaybeValue {
 
@@ -21,11 +18,7 @@ public class SomeValue extends MaybeValue {
         return this;
     }
 
-    @Override
-    public Set<Cell> references() {
-        return new HashSet<>();
-    }
-
+    // Method for testing
     @Override
     public boolean equals(Object o){
         if(o instanceof SomeValue){

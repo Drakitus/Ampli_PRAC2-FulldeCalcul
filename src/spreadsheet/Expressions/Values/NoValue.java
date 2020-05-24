@@ -1,7 +1,4 @@
-package spreadsheet;
-
-import java.util.HashSet;
-import java.util.Set;
+package spreadsheet.Expressions.Values;
 
 public class NoValue extends MaybeValue {
 
@@ -17,8 +14,4 @@ public class NoValue extends MaybeValue {
         return this;
     }
 
-    @Override
-    public Set<Cell> references() {
-        return new HashSet<>();
-    }
 }
